@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 def distanciaEuclidiana(v1, v2):
   return np.linalg.norm(v1 - v2)
