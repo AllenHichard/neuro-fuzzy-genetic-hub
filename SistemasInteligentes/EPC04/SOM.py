@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import Mapa as m
 
 def distanciaEuclidiana(v1, v2):
   return np.linalg.norm(v1 - v2)
@@ -18,8 +19,10 @@ def noMaisProximo(Xs, indexAleatoriaInstancia, mapa, linhas, colunas):
         result = (i, j)
   return result
 
-def constructSOM(linhas, colunas, dim, StepsMax, AlcanceMaximo, taxaAprendizagem, Xs):
-    mapa = np.random.random_sample(size=(linhas, colunas, dim))
+def constructSOM(linhas, colunas, dim, StepsMax, AlcanceMaximo, taxaAprendizagem, Xs, topologia):
+    #np.random.seed(1)
+    #mapa = np.random.random_sample(size=(linhas, colunas, dim))
+    mapa = m.mapa(topologia)
     for s in range(StepsMax):
         if s % (StepsMax/10) == 0: print("step = ", str(s))
         pct_left = 1.0 - ((s * 1.0) / StepsMax) #varia de 0 até 100%

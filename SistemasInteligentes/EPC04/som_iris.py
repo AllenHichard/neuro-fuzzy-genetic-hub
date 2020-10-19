@@ -48,7 +48,7 @@ def main():
 
   # 1. load data
   print("\nLoading Iris data into memory \n")
-  data_file = "iris_data_012.txt"
+  data_file = "iris_data.txt"
   data_x = np.loadtxt(data_file, delimiter=",", usecols=range(0,4),
     dtype=np.float64)
   data_y = np.loadtxt(data_file, delimiter=",", usecols=[4],
