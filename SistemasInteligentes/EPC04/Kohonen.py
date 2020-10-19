@@ -11,8 +11,8 @@ def main():
   linhas = 30
   colunas = 30
   AlcanceMaximo = linhas + colunas
-  taxaAprendizagem = 0.5
-  StepsMax = 5000
+  taxaAprendizagem = 0.5 # taxa de aprendizagem
+  StepsMax = 5000 # variáveis de manipulação
 
   (Xs,Ys) = file.openFile()
 
@@ -30,8 +30,20 @@ def main():
     plt.colorbar()
   plt.show()
 
-  #kmeans = KMeans(n_clusters=3, random_state=0).fit(u_matrix)
+  kmeans = KMeans(n_clusters=3, random_state=0).fit(Xs)
+  #print(Ys)
   #print(kmeans.labels_)
+  acerto = 0
+  for i in range(len(Ys)):
+    if(Ys[i] == 0 and kmeans.labels_[i] == 1):
+      acerto += 1
+    elif (Ys[i] == 1 and kmeans.labels_[i] == 2):
+      acerto += 1
+    elif (Ys[i] == 2 and kmeans.labels_[i] == 0):
+      acerto += 1
+
+  print("Acurácia = ", acerto*100/len(Ys), "%")
+
 
 
 if __name__=="__main__":

@@ -24,7 +24,7 @@ def constructSOM(linhas, colunas, dim, StepsMax, AlcanceMaximo, taxaAprendizagem
     #mapa = np.random.random_sample(size=(linhas, colunas, dim))
     mapa = m.mapa(topologia)
     for s in range(StepsMax):
-        if s % (StepsMax/10) == 0: print("step = ", str(s))
+        if s % (StepsMax/10) == 0: print("Geração = ", str(s))
         pct_left = 1.0 - ((s * 1.0) / StepsMax) #varia de 0 até 100%
         alcanceAtual = (int)(pct_left * AlcanceMaximo) # varia de 0 a 60 pontos
         taxaAtual = pct_left * taxaAprendizagem
